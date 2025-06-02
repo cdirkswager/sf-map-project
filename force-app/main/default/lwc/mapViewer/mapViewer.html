@@ -1,0 +1,10 @@
+<template>
+    <template if:true={imageUrl}>
+        <div class="map-container">
+            <img src={imageUrl} alt="Map" class="map-image" />
+        </div>
+    </template>
+    <template if:true={error}>
+        <p class="error">{error}</p>
+    </template>
+</template>

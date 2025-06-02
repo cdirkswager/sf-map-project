@@ -4,7 +4,6 @@ import { getRecord } from 'lightning/uiRecordApi';
 
 export default class MapViewer extends LightningElement {
     @api recordId;
-
     imageUrl;
     error;
 
@@ -14,8 +13,13 @@ export default class MapViewer extends LightningElement {
             this.imageUrl = data.fields.ImageURL__c.value;
             this.error = undefined;
         } else if (error) {
-            this.error = 'Failed to load image';
+            this.error = 'Failed to load image from record.';
             this.imageUrl = undefined;
         }
+    }
+
+    handleImageError() {
+        this.error = 'Image failed to load. Check the URL or permissions.';
+        this.imageUrl = undefined;
     }
 }
